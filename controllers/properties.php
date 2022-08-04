@@ -1,5 +1,5 @@
 <?php
-    require "instancia.php";    
+    require "../config/instancia.php";    
 
     $result = $data->getProperties();
 

@@ -1,7 +1,7 @@
 <?php
-    require "instancia.php";
+    require "../config/instancia.php";
 
-    $result = $data->getCart($_GET['correo']);
+    $result = $data->getCart(json_decode(file_get_contents('php://input'),true));
 
     echo json_encode($result);
 ?>
