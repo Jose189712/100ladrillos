@@ -3,5 +3,5 @@
 
     $input = json_decode(file_get_contents('php://input'),true);
     
-    $data->removeCart($input);
+    echo $data->removeCart($input);
 ?>

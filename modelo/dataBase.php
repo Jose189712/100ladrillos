@@ -46,7 +46,7 @@ class Actions extends Connection
             $query->bindValue(':bricksBuy', $input['bricksBuy'], PDO::PARAM_INT);
             $query->bindValue(':idFPropiedad', $input['idFPropiedad'], PDO::PARAM_INT);
             $query->bindValue(':correo', $input['correo'], PDO::PARAM_STR);
-            var_dump($query->execute());
+            return $query->execute();
         } catch (PDOException $e) {
             return $e;
         }
@@ -60,7 +60,7 @@ class Actions extends Connection
             $query = $this->dataBase->prepare("DELETE FROM compras WHERE idFPropiedad=:idFPropiedad AND idUser=(SELECT idUser FROM users WHERE correo=:correo) AND status != 'buy'");
             $query->bindValue(":idFPropiedad", $input['idFPropiedad'], PDO::PARAM_INT);
             $query->bindValue(":correo", $input['correo'], PDO::PARAM_STR);
-            $query->execute();
+            return($query->execute());
         } catch (PDOException $e) {
             return $e;
         }
